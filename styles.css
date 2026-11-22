@@ -1,0 +1,185 @@
+:root {
+  /* --color-bg: #D6531C; */
+  --color-bg: #F6F4F0;        /* page background */
+  --color-surface: #FFFFFF;   /* logo placeholder fill */
+  --color-text: #1F2A24;      /* headings */
+  --color-body: #333B36;      /* body copy */
+  --color-muted: #5A635E;     /* small labels, footer */
+  --color-border: #DDD9D2;    /* footer line */
+  --color-accent: #11100F;    /* button + divider */
+  --color-accent-hover: #11100F;
+  --color-on-accent: #FFFFFF; /* button text */
+  --font-heading: "Space Grotesk", Inter, system-ui, sans-serif;
+  --font-body: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Full-height layout with the footer pinned to the bottom */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px;
+}
+
+.hero__inner {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  text-align: center;
+}
+
+/* 1. Logo */
+.logo {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+}
+
+.logo--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #8A928D;
+  border-radius: 50%;
+  background: var(--color-surface);
+}
+
+.logo--placeholder span {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+/* 2. Name + tagline */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.brand__name {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 6vw, 44px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.brand__tagline {
+  /* margin: 0;
+  font-size: clamp(17px, 2.5vw, 20px);
+  line-height: 1.4;
+  color: #4A524D; */
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-body);
+}
+
+.divider {
+  width: 48px;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+/* 3. Coming soon message */
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.message__eyebrow {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.message__text {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-body);
+}
+
+/* 4. Etsy button */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.button:hover {
+  background: var(--color-accent-hover);
+}
+
+.button:hover svg {
+  transform: translateX(2px);
+}
+
+.button svg {
+  transition: transform 0.15s ease;
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+/* 5. Footer */
+.footer {
+  /* border-top: 1px solid var(--color-border); */
+  padding: 24px;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .button svg {
+    transition: none;
+  }
+}
